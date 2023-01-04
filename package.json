@@ -1,0 +1,17 @@
+{
+  "name": "trpc-testo",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd packages/server && pnpm start\" \"cd packages/client && pnpm dev\""
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "wsrun": "^5.2.4"
+  }
+}
