@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { defaultConfig } from './config/default';
-import { inferAsyncReturnType, initTRPC } from '@trpc/server';
+import { inferAsyncReturnType, initTRPC, TRPCError } from '@trpc/server';
 import superjson  from 'superjson';
 
 dotenv.config({ path: path.join(__dirname, './.env') });
@@ -25,6 +25,16 @@ const appRouter = t.router({
   sayHello: t.procedure.query(async () => {
 
     return { message: 'HELLOO THERE' };
+  }),
+  error: t.procedure.query(async () => {
+
+    throw new TRPCError({
+      code: 'NOT_FOUND',
+      message: 'TEST',
+      cause: 'TEST',
+    });
+
+    return { message: 'asd' };
   }),
 });
 

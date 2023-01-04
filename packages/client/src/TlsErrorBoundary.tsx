@@ -1,7 +1,7 @@
 import React, { ComponentType, FC } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { useQueryErrorResetBoundary } from '@tanstack/react-query'
-import { isTRPCClientError } from '../utils/trpc/trpcClient'
+import { isTRPCClientError } from './trpc/trpcClient';
 
 export class BoundaryError extends Error {
   readonly traceId?: string
@@ -33,7 +33,7 @@ const ErrorFallback = ({ traceId, status, error, resetErrorBoundary }) => {
   }
 
   return (
-    <div>
+    <div style={{background: 'red', margin: '20px'}}>
       <small>
         <strong>
           {errorStatus} {message}

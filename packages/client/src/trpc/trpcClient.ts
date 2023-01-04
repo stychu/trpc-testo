@@ -1,9 +1,9 @@
 import { TRPCClientError, createTRPCReact } from '@trpc/react-query'
-import { trpcClientContext } from './trpcClientContext'
 import type { AppRouter } from 'server';
+import { trpcClientContext } from './trpcClientContext';
 
 export const trpc = createTRPCReact<AppRouter>({
-  reactQueryContext: trpcClientContext,
+  // reactQueryContext: trpcClientContext
 })
 
 export function isTRPCClientError(
